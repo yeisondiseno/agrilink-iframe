@@ -1,0 +1,9 @@
+@import '../../../styles/variables/index.scss';
+
+.a-cover {
+  position: absolute;
+  inset: 0;
+  background-color: rgb(59, 47, 60);
+  opacity: 0.6;
+  z-index: 1;
+}
