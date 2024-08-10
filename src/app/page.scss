@@ -1,115 +1,13 @@
 @import '../styles/variables/index.scss';
 
 .home {
-  &-first {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    justify-content: center;
-    height: 47.5rem;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-right: 10%;
+  margin-top: 5.625rem;
+  margin-bottom: 5.625rem;
+  text-align: center;
+}
 
-    h1 {
-      font-size: 5.8125rem;
-      margin-bottom: 0;
-    }
-
-    h3 {
-      font-size: 3.5625rem;
-      margin-top: 0;
-      color: transparent;
-    }
-
-    &-title-big {
-      font-size: 10rem;
-      text-shadow: $text-shadow;
-    }
-
-    &-content {
-      margin-right: 10%;
-    }
-  }
-
-  &-second {
-    display: flex;
-    margin-top: -8.0625rem;
-    margin-bottom: 10rem;
-    padding: 0 90px;
-
-    &-card {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      overflow: hidden;
-      height: 423px;
-
-      &-img {
-        position: absolute;
-        padding: 11.25rem 0;
-        width: 100%;
-      }
-
-      p {
-        font-weight: bold;
-        font-size: 2.6875rem;
-        text-shadow: $text-shadow;
-        z-index: 1;
-      }
-    }
-  }
-
-  &-third {
-    position: relative;
-    overflow: hidden;
-
-    &-container {
-      display: flex;
-    }
-
-    &-right {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-position: bottom;
-      background-repeat: no-repeat;
-      background-size: contain;
-      width: 80%;
-      padding: 9.375rem 0;
-
-      h3 {
-        font-size: 5.8125rem;
-        width: min-content;
-      }
-    }
-
-    &-title {
-      font-style: italic;
-      font-size: 3.5625rem;
-      border-bottom: solid 1px $primary;
-      font-weight: 400;
-      width: fit-content;
-    }
-
-    &-sub-title {
-      font-size: 3.5625rem;
-      font-weight: 900;
-    }
-
-    &-text {
-      max-width: 43.125rem;
-    }
-
-    &-divider {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-  }
+.card-button {
+  border: none;
+  background-color: transparent;
+  margin: 24px;
 }

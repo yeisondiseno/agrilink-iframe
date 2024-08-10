@@ -3,4 +3,13 @@
 html {
   background-color: $bg;
   color: $fonts;
+  font-family: var(--font-quattrocento), sans-serif;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+button {
+  cursor: pointer;
 }
