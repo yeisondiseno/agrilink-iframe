@@ -1,15 +1,13 @@
 import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 // Fonts
-import { Poppins } from 'next/font/google';
+import { Quattrocento } from 'next/font/google';
 // Styles
 import '@styles/index.scss';
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-poppins',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+const quattrocento = Quattrocento({
+  variable: '--font-quattrocento',
+  weight: '400',
 });
 
 export const metadata: Metadata = {
@@ -24,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='es'>
-      <body className={poppins.className}>{children}</body>
+      <body className={quattrocento.className}>{children}</body>
     </html>
   );
 }
