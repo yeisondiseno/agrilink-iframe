@@ -1,8 +1,12 @@
 @import '../variables/index.scss';
 
 .max-block {
-  width: 100%;
+  width: -webkit-fill-available;
   max-width: $max-width;
   margin-left: auto;
   margin-right: auto;
+
+  &-internal {
+    max-width: $max-width-internal;
+  }
 }

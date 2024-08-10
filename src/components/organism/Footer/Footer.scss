@@ -3,6 +3,11 @@
 .o-footer {
   background-color: $gray-9;
 
+  &-link {
+    display: block;
+    margin-bottom: 1.875rem;
+  }
+
   &-content {
     display: flex;
     gap: 6.25rem;

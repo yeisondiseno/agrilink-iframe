@@ -1,4 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
+// Components
+import { LogoIcon } from '@/components/index';
 // Styles
 import './Footer.scss';
 
@@ -8,7 +11,9 @@ const Footer = () => {
       <footer className='o-footer'>
         <section className='o-footer-content max-block'>
           <div>
-            <div>Logo</div>
+            <Link href='./' className='o-footer-link'>
+              <LogoIcon width={465} />
+            </Link>
             <p className='light'>
               ALMA es para todas las mujeres, no importa tu nivel deportivo o
               condición física, lo importante es tu superación, tu salud y
