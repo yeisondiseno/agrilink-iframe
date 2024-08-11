@@ -37,3 +37,6 @@ next-env.d.ts
 
 # million
 /.million
+
+# Eviroment
+.env
