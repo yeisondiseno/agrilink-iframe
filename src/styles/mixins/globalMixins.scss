@@ -1,5 +1,25 @@
+@import '../variables/index.scss';
+
 @mixin out-line {
   outline: 2px rgba($primary, 0.5);
   outline-style: solid;
   outline-offset: 2px;
+}
+
+@mixin responsive($point) {
+  @if $point == mobile {
+    @media (max-width: $mobile) {
+      @content;
+    }
+  }
+  @elseif $point == tablet {
+    @media (max-width: $tablet) {
+      @content;
+    }
+  }
+  @elseif $point == desktop {
+    @media (max-width: $desktop) {
+      @content;
+    }
+  }
 }
