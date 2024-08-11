@@ -14,6 +14,8 @@ const loading = () => {
           <Skeleton height={60} className='loading-card-item' />
           <Skeleton height={60} className='loading-card-item' />
           <Skeleton height={60} className='loading-card-item' />
+          <Skeleton height={60} className='loading-card-item' />
+          <Skeleton height={60} className='loading-card-item' />
         </Card>
       </section>
     </main>

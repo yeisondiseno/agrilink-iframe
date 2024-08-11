@@ -10,7 +10,6 @@ import { env } from '@config/env';
 import './page.scss';
 
 async function getData(url: string) {
-  console.log('env', env);
   const res = await fetch(`${env.urlApi}${url}`);
 
   if (!res.ok) {
@@ -34,7 +33,6 @@ export default async function Home() {
     page2: dataPage2,
     page3: dataPage3,
   });
-  console.log('totalData', totalData.length);
 
   return (
     <main className='home max-block'>
