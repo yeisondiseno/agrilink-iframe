@@ -30,8 +30,12 @@
     margin: 0 2rem;
   }
 
-  &-content-title {
-    color: $secondary;
-    margin: 1rem 0;
+  &-content-sanitize {
+    padding-bottom: 1rem;
+    & > * strong {
+      display: block;
+      color: $secondary;
+      margin: 1rem 0;
+    }
   }
 }
