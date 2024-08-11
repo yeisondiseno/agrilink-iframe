@@ -1,23 +1,33 @@
 @import '../variables/index.scss';
 
-h2 {
-  font-size: 1.75rem;
+h1 {
+  font-size: 2rem;
 }
 
-p {
+h2 {
+  font-size: 0.875rem;
+}
+
+p,
+.text {
   margin-block-start: 0;
   margin-block-end: 0;
 
+  // Size
+  &.xs {
+    font-size: 0.75rem;
+  }
+
+  &.sm {
+    font-size: 0.875rem;
+  }
+
+  // Weight
   &.light {
     font-weight: 300;
   }
-}
 
-.font-border {
-  color: transparent;
-  -webkit-text-stroke: 1px $white;
-
-  &.pink {
-    -webkit-text-stroke-color: $third;
+  &.bold {
+    font-weight: bold;
   }
 }

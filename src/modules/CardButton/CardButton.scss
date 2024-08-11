@@ -1,5 +1,37 @@
-.card-button {
+@import '../../styles/variables/index.scss';
+
+.module-card-button {
   border: none;
   background-color: transparent;
   margin: 24px;
+
+  &-header {
+    color: $primary;
+    font-weight: bold;
+    font-size: 1.125rem;
+    padding: 1.25rem 1.875rem;
+    border-bottom: solid 1px $border;
+  }
+
+  &-content {
+    padding: 1rem 2rem;
+  }
+
+  &-content-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.6875rem;
+  }
+
+  &-content-card-line {
+    width: 1px;
+    height: 52px;
+    background-color: $border;
+    margin: 0 2rem;
+  }
+
+  &-content-title {
+    color: $secondary;
+    margin: 1rem 0;
+  }
 }

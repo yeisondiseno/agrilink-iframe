@@ -2,6 +2,8 @@
 import React, { useState, ReactNode, useEffect } from 'react';
 // Component
 import { Portal, Card, Cover } from '@/components';
+// Styles
+import './Modal.scss';
 
 type ModalType = {
   open?: boolean;
@@ -12,7 +14,9 @@ type ModalType = {
 const Modal = ({ open = false, handledOpen, children }: ModalType) => {
   return (
     <Portal show={open} id='portal'>
-      <Card className=''>{children}</Card>;
+      <section className='m-modal'>
+        <Card className='m-modal-content max-block internal'>{children}</Card>
+      </section>
       <Cover onClick={handledOpen} />
     </Portal>
   );

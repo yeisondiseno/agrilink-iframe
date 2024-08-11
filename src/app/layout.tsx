@@ -1,11 +1,11 @@
 import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 // Fonts
-import { Quattrocento } from 'next/font/google';
+import { Quattrocento_Sans } from 'next/font/google';
 // Styles
 import '@styles/index.scss';
 
-const quattrocento = Quattrocento({
+const quattrocento = Quattrocento_Sans({
   subsets: ['latin'],
   variable: '--font-quattrocento',
   weight: '400',
