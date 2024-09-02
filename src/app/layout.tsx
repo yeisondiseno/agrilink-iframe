@@ -12,7 +12,7 @@ const quattrocento = Quattrocento_Sans({
 });
 
 export const metadata: Metadata = {
-  title: '',
+  title: 'Agrilink',
   robots: 'noindex, nofollow',
   creator: 'Yeison Montoya',
   authors: [{ name: ' Yeison Montoya' }],
