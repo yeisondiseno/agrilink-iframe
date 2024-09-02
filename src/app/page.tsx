@@ -3,7 +3,9 @@ import React from 'react';
 import { Card } from '@components/index';
 import { CardButton } from '@modules/index';
 // Utils
-import { mapData } from '@utils/mapData';
+import { mapData, normalizeText } from '@utils/mapData';
+// Constant
+import { sponsorList } from '@constant/homeData';
 // Config
 import { env } from '@config/env';
 // Styles
@@ -19,6 +21,8 @@ async function getData(url: string) {
   return res.json();
 }
 
+const sponsorListNormalize = sponsorList.map((e) => normalizeText(e));
+
 export default async function Home() {
   const dataCategory = await getData('/sponsors?include=category');
   const dataPage2 = await getData(
@@ -28,11 +32,15 @@ export default async function Home() {
     '/sponsors?include=category&page%5Bnumber%5D=3&page%5Bsize%5D=24',
   );
 
-  const totalData = mapData({
-    base: dataCategory,
-    page2: dataPage2,
-    page3: dataPage3,
-  });
+  const totalData = mapData([dataCategory, dataPage2, dataPage3]);
+
+  const sponsors = totalData.filter(({ name }) =>
+    sponsorListNormalize.includes(normalizeText(name)),
+  );
+
+  const notSponsors = totalData.filter(
+    ({ name }) => !sponsorListNormalize.includes(normalizeText(name)),
+  );
 
   return (
     <main className='home max-block'>
@@ -40,7 +48,25 @@ export default async function Home() {
         <h1>Patrocinadores</h1>
 
         <Card>
-          {totalData?.map(
+          {sponsors?.map(
+            ({ description, name, website, logo }: Record<string, any>) => {
+              return (
+                <CardButton
+                  key={name}
+                  name={name}
+                  img={logo}
+                  description={description}
+                  website={website}
+                />
+              );
+            },
+          )}
+        </Card>
+
+        <h1 style={{ marginTop: '3rem' }}>Empresas vinculadas</h1>
+
+        <Card>
+          {notSponsors?.map(
             ({ description, name, website, logo }: Record<string, any>) => {
               return (
                 <CardButton

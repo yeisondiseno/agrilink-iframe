@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, ReactNode, useEffect } from 'react';
+import React, { ReactNode } from 'react';
 // Component
 import { Portal, Card, Cover } from '@/components';
 // Styles
