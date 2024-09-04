@@ -44,14 +44,14 @@ export default async function Home() {
     dataPage5,
   ]);
 
-  const sponsors = await constSortByList({
+  const sponsors = constSortByList({
     data: totalData.filter(({ name }) =>
       sponsorListNormalize.includes(normalizeText(name)),
     ),
     list: sponsorListNormalize,
   });
 
-  const notSponsors = await constSortByList({
+  const notSponsors = constSortByList({
     data: totalData.filter(
       ({ name }) => !sponsorListNormalize.includes(normalizeText(name)),
     ),
@@ -63,7 +63,6 @@ export default async function Home() {
       <section>
         <h1>Patrocinadores</h1>
         <p>{totalData.length}</p>
-        <p>{JSON.stringify(sponsors)}</p>
         <Card>
           {sponsors?.map(
             ({ description, name, website, logo }: Record<string, any>) => {

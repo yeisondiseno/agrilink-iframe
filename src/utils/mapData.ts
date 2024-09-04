@@ -13,13 +13,11 @@ const distributionData = (data: DataType) =>
   });
 
 export const mapData = (data: DataType[]) => {
-  const mappedBase = data.flatMap((e) => distributionData(e));
-
-  return [...mappedBase];
+  return Array.from(new Set(data.flatMap((e) => distributionData(e))));
 };
 
 export const normalizeText = (text: string) =>
-  text.trim().toLocaleLowerCase().replaceAll(' ', '');
+  text?.trim()?.toLocaleLowerCase()?.replaceAll(' ', '');
 
 export const constSortByList = ({
   data,
