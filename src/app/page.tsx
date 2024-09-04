@@ -29,9 +29,20 @@ export default async function Home() {
   const dataPage3 = await getData(
     '/sponsors?include=category&page%5Bnumber%5D=3&page%5Bsize%5D=24',
   );
+  const dataPage4 = await getData(
+    '/sponsors?include=category&page%5Bnumber%5D=4&page%5Bsize%5D=24',
+  );
+  const dataPage5 = await getData(
+    '/sponsors?include=category&page%5Bnumber%5D=5&page%5Bsize%5D=24',
+  );
 
-  const totalData = mapData([dataCategory, dataPage2, dataPage3]);
-  console.log(totalData.length);
+  const totalData = mapData([
+    dataCategory,
+    dataPage2,
+    dataPage3,
+    dataPage4,
+    dataPage5,
+  ]);
 
   const sponsors = await constSortByList({
     data: totalData.filter(({ name }) =>
@@ -52,6 +63,7 @@ export default async function Home() {
       <section>
         <h1>Patrocinadores</h1>
         <p>{totalData.length}</p>
+        <p>{JSON.stringify(sponsors)}</p>
         <Card>
           {sponsors?.map(
             ({ description, name, website, logo }: Record<string, any>) => {
