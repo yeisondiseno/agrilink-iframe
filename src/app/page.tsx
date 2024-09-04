@@ -3,9 +3,9 @@ import React from 'react';
 import { Card } from '@components/index';
 import { CardButton } from '@modules/index';
 // Utils
-import { mapData, normalizeText } from '@utils/mapData';
+import { mapData, normalizeText, constSortByList } from '@utils/mapData';
 // Constant
-import { sponsorList } from '@constant/homeData';
+import { sponsorList, notSponsorList } from '@constant/homeData';
 // Config
 import { env } from '@config/env';
 // Styles
@@ -32,19 +32,19 @@ export default async function Home() {
 
   const totalData = mapData([dataCategory, dataPage2, dataPage3]);
 
-  const sponsors = totalData
-    .filter(({ name }) => sponsorListNormalize.includes(normalizeText(name)))
-    .sort(
-      (a, b) =>
-        sponsorListNormalize.indexOf(normalizeText(a.name)) -
-        sponsorListNormalize.indexOf(normalizeText(b.name)),
-    );
+  const sponsors = constSortByList({
+    data: totalData.filter(({ name }) =>
+      sponsorListNormalize.includes(normalizeText(name)),
+    ),
+    list: sponsorListNormalize,
+  });
 
-  console.log('sponsors', sponsors);
-
-  const notSponsors = totalData.filter(
-    ({ name }) => !sponsorListNormalize.includes(normalizeText(name)),
-  );
+  const notSponsors = constSortByList({
+    data: totalData.filter(
+      ({ name }) => !sponsorListNormalize.includes(normalizeText(name)),
+    ),
+    list: notSponsorList,
+  });
 
   return (
     <main className='home max-block'>

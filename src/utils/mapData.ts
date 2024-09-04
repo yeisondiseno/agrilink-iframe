@@ -15,12 +15,24 @@ const distributionData = (data: DataType) =>
 export const mapData = (data: DataType[]) => {
   const mappedBase = data.flatMap((e) => distributionData(e));
 
-  // distributionData(base);
-  // const mappedPage2 = distributionData(page2);
-  // const mappedPage3 = distributionData(page3);
-
   return [...mappedBase];
 };
 
 export const normalizeText = (text: string) =>
   text.trim().toLocaleLowerCase().replaceAll(' ', '');
+
+export const constSortByList = ({
+  data,
+  list,
+}: {
+  data: DataType[];
+  list: string[];
+}) =>
+  data.sort((a, b) => {
+    const listNormal = list.map((e) => normalizeText(e));
+
+    return (
+      listNormal.indexOf(normalizeText(a.name)) -
+      listNormal.indexOf(normalizeText(b.name))
+    );
+  });
