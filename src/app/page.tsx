@@ -19,8 +19,6 @@ async function getData(url: string) {
   return res.json();
 }
 
-const sponsorListNormalize = sponsorList.map((e) => normalizeText(e));
-
 export default async function Home() {
   const dataCategory = await getData('/sponsors?include=category');
   const dataPage2 = await getData(
@@ -46,14 +44,14 @@ export default async function Home() {
 
   const sponsors = constSortByList({
     data: totalData.filter(({ name }) =>
-      sponsorListNormalize.includes(normalizeText(name)),
+      sponsorList.includes(normalizeText(name)),
     ),
-    list: sponsorListNormalize,
+    list: sponsorList,
   });
 
   const notSponsors = constSortByList({
-    data: totalData.filter(
-      ({ name }) => !sponsorListNormalize.includes(normalizeText(name)),
+    data: totalData.filter(({ name }) =>
+      notSponsorList.includes(normalizeText(name)),
     ),
     list: notSponsorList,
   });

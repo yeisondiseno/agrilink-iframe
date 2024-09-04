@@ -1,4 +1,7 @@
-export const sponsorList = [
+// Utils
+import { normalizeText } from '@utils/mapData';
+
+const sponsor = [
   'JARDIN EXOTICS',
   'PUERTO ANTIOQUIA',
   'TOMRA',
@@ -10,7 +13,9 @@ export const sponsorList = [
   'MAERSK',
 ];
 
-export const notSponsorList = [
+export const sponsorList = sponsor.map((e) => normalizeText(e));
+
+const notSponsor = [
   'AGRÍCOLAS EL RUIZ',
   'AGRILINK',
   'AGROEQUIPOS ALPUJARRA',
@@ -80,3 +85,5 @@ export const notSponsorList = [
   'VIVERO GENESIS',
   'YAK LOGÍSTICA INDUSTRIAL',
 ];
+
+export const notSponsorList = notSponsor.map((e) => normalizeText(e));
