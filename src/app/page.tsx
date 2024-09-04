@@ -13,11 +13,9 @@ import './page.scss';
 
 async function getData(url: string) {
   const res = await fetch(`${env.urlApi}${url}`);
-
   if (!res.ok) {
     throw new Error('Failed to fetch data');
   }
-
   return res.json();
 }
 
@@ -34,9 +32,15 @@ export default async function Home() {
 
   const totalData = mapData([dataCategory, dataPage2, dataPage3]);
 
-  const sponsors = totalData.filter(({ name }) =>
-    sponsorListNormalize.includes(normalizeText(name)),
-  );
+  const sponsors = totalData
+    .filter(({ name }) => sponsorListNormalize.includes(normalizeText(name)))
+    .sort(
+      (a, b) =>
+        sponsorListNormalize.indexOf(normalizeText(a.name)) -
+        sponsorListNormalize.indexOf(normalizeText(b.name)),
+    );
+
+  console.log('sponsors', sponsors);
 
   const notSponsors = totalData.filter(
     ({ name }) => !sponsorListNormalize.includes(normalizeText(name)),
