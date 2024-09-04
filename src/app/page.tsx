@@ -3,12 +3,7 @@ import React from 'react';
 import { Card } from '@components/index';
 import { CardButton } from '@modules/index';
 // Utils
-import {
-  mapData,
-  normalizeText,
-  constSortByList,
-  DataType,
-} from '@utils/mapData';
+import { mapData, normalizeText, constSortByList } from '@utils/mapData';
 // Constant
 import { sponsorList, notSponsorList } from '@constant/homeData';
 // Config
