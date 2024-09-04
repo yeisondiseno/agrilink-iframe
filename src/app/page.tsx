@@ -67,6 +67,27 @@ export default async function Home() {
           )}
         </Card>
 
+        <h1 style={{ marginTop: '3rem' }}>Test</h1>
+        <Card>
+          {totalData
+            .filter(({ name }) =>
+              sponsorListNormalize.includes(normalizeText(name)),
+            )
+            ?.map(
+              ({ description, name, website, logo }: Record<string, any>) => {
+                return (
+                  <CardButton
+                    key={name}
+                    name={name}
+                    img={logo}
+                    description={description}
+                    website={website}
+                  />
+                );
+              },
+            )}
+        </Card>
+
         <h1 style={{ marginTop: '3rem' }}>Empresas vinculadas</h1>
 
         <Card>
