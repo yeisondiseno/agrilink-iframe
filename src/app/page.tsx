@@ -30,16 +30,17 @@ export default async function Home() {
     '/sponsors?include=category&page%5Bnumber%5D=3&page%5Bsize%5D=24',
   );
 
-  const totalData = mapData([dataCategory, dataPage2, dataPage3]);
+  const totalData = await mapData([dataCategory, dataPage2, dataPage3]);
+  console.log(totalData.length);
 
-  const sponsors = constSortByList({
+  const sponsors = await constSortByList({
     data: totalData.filter(({ name }) =>
       sponsorListNormalize.includes(normalizeText(name)),
     ),
     list: sponsorListNormalize,
   });
 
-  const notSponsors = constSortByList({
+  const notSponsors = await constSortByList({
     data: totalData.filter(
       ({ name }) => !sponsorListNormalize.includes(normalizeText(name)),
     ),
@@ -50,7 +51,6 @@ export default async function Home() {
     <main className='home max-block'>
       <section>
         <h1>Patrocinadores</h1>
-
         <Card>
           {sponsors?.map(
             ({ description, name, website, logo }: Record<string, any>) => {
@@ -67,29 +67,7 @@ export default async function Home() {
           )}
         </Card>
 
-        <h1 style={{ marginTop: '3rem' }}>Test</h1>
-        <Card>
-          {totalData
-            .filter(({ name }) =>
-              sponsorListNormalize.includes(normalizeText(name)),
-            )
-            ?.map(
-              ({ description, name, website, logo }: Record<string, any>) => {
-                return (
-                  <CardButton
-                    key={name}
-                    name={name}
-                    img={logo}
-                    description={description}
-                    website={website}
-                  />
-                );
-              },
-            )}
-        </Card>
-
         <h1 style={{ marginTop: '3rem' }}>Empresas vinculadas</h1>
-
         <Card>
           {notSponsors?.map(
             ({ description, name, website, logo }: Record<string, any>) => {
