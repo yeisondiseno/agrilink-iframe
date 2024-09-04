@@ -62,7 +62,6 @@ export default async function Home() {
     <main className='home max-block'>
       <section>
         <h1>Patrocinadores</h1>
-        <p>{totalData.length}</p>
         <Card>
           {sponsors?.map(
             ({ description, name, website, logo }: Record<string, any>) => {
