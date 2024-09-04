@@ -3,7 +3,12 @@ import React from 'react';
 import { Card } from '@components/index';
 import { CardButton } from '@modules/index';
 // Utils
-import { mapData, normalizeText, constSortByList } from '@utils/mapData';
+import {
+  mapData,
+  normalizeText,
+  constSortByList,
+  DataType,
+} from '@utils/mapData';
 // Constant
 import { sponsorList, notSponsorList } from '@constant/homeData';
 // Config
@@ -30,7 +35,7 @@ export default async function Home() {
     '/sponsors?include=category&page%5Bnumber%5D=3&page%5Bsize%5D=24',
   );
 
-  const totalData = await mapData([dataCategory, dataPage2, dataPage3]);
+  const totalData = mapData([dataCategory, dataPage2, dataPage3]);
   console.log(totalData.length);
 
   const sponsors = await constSortByList({
@@ -51,6 +56,7 @@ export default async function Home() {
     <main className='home max-block'>
       <section>
         <h1>Patrocinadores</h1>
+        <p>{totalData.length}</p>
         <Card>
           {sponsors?.map(
             ({ description, name, website, logo }: Record<string, any>) => {
