@@ -35,6 +35,13 @@ export const constSortByList = ({
   data.sort((a, b) => {
     const listNormal = list.map((e) => normalizeText(e));
 
+    if (
+      !listNormal.includes(normalizeText(a.name)) ||
+      !listNormal.includes(normalizeText(b.name))
+    ) {
+      return 1;
+    }
+
     return (
       listNormal.indexOf(normalizeText(a.name)) -
       listNormal.indexOf(normalizeText(b.name))
