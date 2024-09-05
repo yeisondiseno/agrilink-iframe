@@ -1,14 +1,10 @@
 .m-modal {
   position: fixed;
   inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 0;
+  max-height: 85%;
+  height: fit-content;
   z-index: 10;
-
-  &-content {
-    padding: 0;
-    top: 50%;
-    max-height: 85%;
-  }
 }
