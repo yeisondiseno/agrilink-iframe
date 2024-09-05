@@ -88,6 +88,12 @@ const notSponsor = [
 
 export const notSponsorList = notSponsor.map((e) => normalizeText(e));
 
-const media = [''];
+const media = [
+  'Revista Frutas y Hortalizas',
+  'Avobook',
+  'Diario Frutícola',
+  'Portal Frutícola',
+  'Fruittoday',
+];
 
 export const mediaList = media.map((e) => normalizeText(e));
