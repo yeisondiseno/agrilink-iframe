@@ -17,7 +17,13 @@ export const mapData = (data: DataType[]) => {
 };
 
 export const normalizeText = (text: string) =>
-  text?.trim()?.toLocaleLowerCase()?.replaceAll(' ', '');
+  text
+    ?.normalize('NFD')
+    ?.replace(/[\u0300-\u036f]/g, '')
+    ?.replace(/[^a-zA-Z0-9 ]/g, '')
+    ?.trim()
+    ?.toLocaleLowerCase()
+    ?.replaceAll(' ', '');
 
 export const constSortByList = ({
   data,

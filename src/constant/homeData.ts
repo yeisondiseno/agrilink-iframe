@@ -87,3 +87,7 @@ const notSponsor = [
 ];
 
 export const notSponsorList = notSponsor.map((e) => normalizeText(e));
+
+const media = [''];
+
+export const mediaList = media.map((e) => normalizeText(e));

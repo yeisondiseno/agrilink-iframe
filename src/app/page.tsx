@@ -5,7 +5,7 @@ import { CardButton } from '@modules/index';
 // Utils
 import { mapData, normalizeText, constSortByList } from '@utils/mapData';
 // Constant
-import { sponsorList, notSponsorList } from '@constant/homeData';
+import { sponsorList, notSponsorList, mediaList } from '@constant/homeData';
 // Config
 import { env } from '@config/env';
 // Styles
@@ -22,16 +22,16 @@ async function getData(url: string) {
 export default async function Home() {
   const dataCategory = await getData('/sponsors?include=category');
   const dataPage2 = await getData(
-    '/sponsors?include=category&page%5Bnumber%5D=2&page%5Bsize%5D=24',
+    '/sponsors?include=category&page%5Bnumber%5D=2&page%5Bsize%5D=30',
   );
   const dataPage3 = await getData(
-    '/sponsors?include=category&page%5Bnumber%5D=3&page%5Bsize%5D=24',
+    '/sponsors?include=category&page%5Bnumber%5D=3&page%5Bsize%5D=30',
   );
   const dataPage4 = await getData(
-    '/sponsors?include=category&page%5Bnumber%5D=4&page%5Bsize%5D=24',
+    '/sponsors?include=category&page%5Bnumber%5D=4&page%5Bsize%5D=30',
   );
   const dataPage5 = await getData(
-    '/sponsors?include=category&page%5Bnumber%5D=5&page%5Bsize%5D=24',
+    '/sponsors?include=category&page%5Bnumber%5D=5&page%5Bsize%5D=30',
   );
 
   const totalData = mapData([
@@ -50,8 +50,10 @@ export default async function Home() {
   });
 
   const notSponsors = constSortByList({
-    data: totalData.filter(({ name }) =>
-      notSponsorList.includes(normalizeText(name)),
+    data: totalData.filter(
+      ({ name }) =>
+        !sponsorList.includes(normalizeText(name)) &&
+        !mediaList.includes(normalizeText(name)),
     ),
     list: notSponsorList,
   });
