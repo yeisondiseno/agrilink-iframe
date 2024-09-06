@@ -36,7 +36,7 @@ export const constSortByList = ({
     const listNormal = list.map((e) => normalizeText(e));
 
     if (!listNormal.includes(normalizeText(a.name))) {
-      return 2;
+      return -1;
     }
 
     return (
