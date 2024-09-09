@@ -79,6 +79,7 @@ export default async function Home() {
         </Card>
 
         <h1 style={{ marginTop: '3rem' }}>Empresas vinculadas</h1>
+        {/* <p>{JSON.stringify(notSponsors)}</p> */}
         <Card>
           {notSponsors?.map(
             ({ description, name, website, logo }: Record<string, any>) => {

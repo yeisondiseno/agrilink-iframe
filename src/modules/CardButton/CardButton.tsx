@@ -34,7 +34,15 @@ const CardButton = ({
   return (
     <>
       <button className='module-card-button' onClick={() => setIsOpen(!isOpen)}>
-        {img && <Image src={img} alt={name} height={60} width={103} />}
+        {img && (
+          <Image
+            src={img}
+            alt={name}
+            height={60}
+            width={103}
+            objectFit='contain'
+          />
+        )}
       </button>
 
       <Modal open={isOpen} handledOpen={() => setIsOpen(!isOpen)}>
