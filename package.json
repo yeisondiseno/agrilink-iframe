@@ -10,7 +10,7 @@
     "format": "prettier --write --ignore-path .gitignore "
   },
   "dependencies": {
-    "@million/lint": "^1.0.0-rc.76",
+    "@million/lint": "^0.0.73",
     "css-loader": "^7.1.2",
     "next": "14.2.4",
     "react": "^18",
