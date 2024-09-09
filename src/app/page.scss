@@ -5,6 +5,13 @@
   margin-top: 5.625rem;
   margin-bottom: 5.625rem;
   text-align: center;
+
+  &-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
 }
 
 .loading-card {
