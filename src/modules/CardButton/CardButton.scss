@@ -6,10 +6,6 @@
   background-color: transparent;
   margin: 1.5rem;
 
-  &-image {
-    max-width: 180px;
-  }
-
   &-header {
     color: $secondary;
     font-weight: bold;
@@ -42,9 +38,5 @@
       color: $secondary;
       margin: 0.8rem 0;
     }
-  }
-
-  &-content-card-image {
-    max-width: 150px;
   }
 }

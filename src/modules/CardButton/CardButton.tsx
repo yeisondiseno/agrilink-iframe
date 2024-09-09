@@ -38,10 +38,9 @@ const CardButton = ({
           <Image
             src={img}
             alt={name}
-            className='module-card-button-image'
             height={95}
             width={180}
-            layout='responsive'
+            style={{ width: '100%', maxWidth: '180px', objectFit: 'fill' }}
           />
         )}
       </button>
@@ -57,10 +56,14 @@ const CardButton = ({
               <Image
                 src={img}
                 alt={name}
-                height={75}
+                height={85}
                 width={150}
-                layout='responsive'
-                className='module-card-button-content-card-image'
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  maxWidth: '150px',
+                  objectFit: 'fill',
+                }}
               />
             )}
             <span className='module-card-button-content-card-line' />

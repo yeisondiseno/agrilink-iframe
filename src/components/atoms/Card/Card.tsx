@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 import './Card.scss';
 
 const Card = ({
-  className,
+  className = '',
   children,
 }: {
   className?: string;

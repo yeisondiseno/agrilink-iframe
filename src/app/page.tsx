@@ -11,10 +11,10 @@ import { env } from '@config/env';
 // Styles
 import './page.scss';
 
-export const revalidate = 60 * 10;
-
 async function getData(url: string) {
-  const res = await fetch(`${env.urlApi}${url}`);
+  const res = await fetch(`${env.urlApi}${url}`, {
+    next: { revalidate: 1000 * 60 * 10, tags: ['sponsor'] },
+  });
   if (!res.ok) {
     throw new Error('Failed to fetch data');
   }
@@ -64,7 +64,7 @@ export default async function Home() {
     <main className='home max-block'>
       <section>
         <h1>Patrocinadores</h1>
-        <Card>
+        <Card className='home-section'>
           {sponsors?.map(
             ({ description, name, website, logo }: Record<string, any>) => {
               return (
@@ -82,7 +82,7 @@ export default async function Home() {
 
         <h1 style={{ marginTop: '3rem' }}>Empresas vinculadas</h1>
 
-        <Card>
+        <Card className='home-section'>
           {notSponsors?.map(
             ({ description, name, website, logo }: Record<string, any>) => {
               return (
