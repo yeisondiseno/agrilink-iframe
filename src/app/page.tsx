@@ -11,7 +11,7 @@ import { env } from '@config/env';
 // Styles
 import './page.scss';
 
-export const revalidate = 60;
+export const revalidate = 60 * 10;
 
 async function getData(url: string) {
   const res = await fetch(`${env.urlApi}${url}`);
