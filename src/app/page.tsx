@@ -11,10 +11,10 @@ import { env } from '@config/env';
 // Styles
 import './page.scss';
 
+export const revalidate = 60 * 5;
+
 async function getData(url: string) {
-  const res = await fetch(`${env.urlApi}${url}`, {
-    next: { revalidate: 1000 * 60 * 10, tags: ['sponsor'] },
-  });
+  const res = await fetch(`${env.urlApi}${url}`);
   if (!res.ok) {
     throw new Error('Failed to fetch data');
   }

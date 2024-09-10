@@ -32,7 +32,7 @@ export const constSortByList = ({
   data: DataType[];
   list: string[];
 }) =>
-  data.sort((a, b) => {
+  data.toSorted((a, b) => {
     const listNormal = list.map((e) => normalizeText(e));
 
     if (!listNormal.includes(normalizeText(a.name))) {
