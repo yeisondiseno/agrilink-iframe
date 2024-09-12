@@ -38,9 +38,14 @@ const CardButton = ({
           <Image
             src={img}
             alt={name}
-            height={95}
-            width={180}
-            style={{ width: '100%', maxWidth: '180px', objectFit: 'fill' }}
+            height={0}
+            width={0}
+            style={{
+              width: '100%',
+              maxWidth: '180px',
+              height: 'auto',
+              objectFit: 'fill',
+            }}
           />
         )}
       </button>
@@ -56,8 +61,8 @@ const CardButton = ({
               <Image
                 src={img}
                 alt={name}
-                height={85}
-                width={150}
+                height={0}
+                width={0}
                 style={{
                   width: '100%',
                   height: 'auto',
