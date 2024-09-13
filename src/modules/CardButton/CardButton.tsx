@@ -30,7 +30,8 @@ const CardButton = ({
     const linkStandard = link
       .toLocaleLowerCase()
       .trim()
-      .replace(/(https?:\/\/)|(www\.)/, '');
+      .replace(/(https?:\/\/)|(www\.)/g, '');
+    console.log('link', link);
 
     return `https://www.${linkStandard}`;
   };
