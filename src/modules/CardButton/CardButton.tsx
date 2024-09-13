@@ -25,6 +25,16 @@ const CardButton = ({
   // State
   const [isOpen, setIsOpen] = useState(false);
 
+  // Action
+  const validLink = (link: string) => {
+    const linkStandard = link
+      .toLocaleLowerCase()
+      .trim()
+      .replace(/(https?:\/\/)|(www\.)/, '');
+
+    return `https://www.${linkStandard}`;
+  };
+
   // render
   const renderSanitizeText = (text: string) => {
     const renderedHTML = sanitizeHtml(text);
@@ -75,7 +85,11 @@ const CardButton = ({
             <div>
               <p className='bold sm'>{name}</p>
               {website && (
-                <Link className='text xs' href={website} target='_blank'>
+                <Link
+                  className='text xs'
+                  href={validLink(website)}
+                  target='_blank'
+                >
                   {website}
                 </Link>
               )}

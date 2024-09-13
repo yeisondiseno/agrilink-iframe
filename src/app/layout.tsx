@@ -9,6 +9,8 @@ const quattrocento = Quattrocento_Sans({
   subsets: ['latin'],
   variable: '--font-quattrocento',
   weight: '400',
+  display: 'swap',
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
