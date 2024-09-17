@@ -45,19 +45,35 @@ export default async function Home() {
   ]);
 
   const sponsors = constSortByList({
-    data: totalData.filter(({ name }) =>
-      sponsorList.includes(normalizeText(name)),
-    ),
+    data: totalData.filter(({ name }) => {
+      const normalName = normalizeText(name);
+      return sponsorList.includes(normalName);
+    }),
     list: sponsorList,
   });
 
   const notSponsors = constSortByList({
-    data: totalData.filter(
-      ({ name }) =>
-        !sponsorList.includes(normalizeText(name)) &&
-        !mediaList.includes(normalizeText(name)),
-    ),
+    data: totalData.filter(({ name }) => {
+      const normalName = normalizeText(name);
+      return (
+        !sponsorList.includes(normalName) &&
+        !mediaList.includes(normalName) &&
+        notSponsorList.includes(normalName)
+      );
+    }),
     list: notSponsorList,
+  });
+
+  const restOfSponsors = constSortByList({
+    data: totalData.filter(({ name }) => {
+      const normalName = normalizeText(name);
+      return (
+        !sponsorList.includes(normalName) &&
+        !mediaList.includes(normalName) &&
+        !notSponsorList.includes(normalName)
+      );
+    }),
+    list: [],
   });
 
   return (
@@ -83,7 +99,7 @@ export default async function Home() {
         <h1 style={{ marginTop: '3rem' }}>Empresas vinculadas</h1>
 
         <Card className='home-section'>
-          {notSponsors?.map(
+          {[...notSponsors, ...restOfSponsors]?.map(
             ({ description, name, website, logo }: Record<string, any>) => {
               return (
                 <CardButton
