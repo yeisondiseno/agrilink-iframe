@@ -11,6 +11,7 @@ const sponsor = [
   'UNIBAN',
   'CFS',
   'MAERSK',
+  'Unitec'
 ];
 
 export const sponsorList = sponsor.map((e) => normalizeText(e));
