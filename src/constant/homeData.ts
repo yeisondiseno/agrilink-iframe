@@ -117,6 +117,7 @@ const media = [
   'Diario Frutícola',
   'Portal Frutícola',
   'Fruittoday',
+  'Apeajal'
 ];
 
 export const mediaList = media.map((e) => normalizeText(e));
