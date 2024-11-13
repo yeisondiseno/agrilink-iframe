@@ -11,7 +11,7 @@ const sponsor = [
   'UNIBAN',
   'CFS',
   'MAERSK',
-  'Unitec'
+  'Unitec',
 ];
 
 export const sponsorList = sponsor.map((e) => normalizeText(e));
@@ -117,7 +117,9 @@ const media = [
   'Diario Frutícola',
   'Portal Frutícola',
   'Fruittoday',
-  'Apeajal'
+  'Apeajal',
+  'Alcaldía de Medellín',
+  'La República',
 ];
 
 export const mediaList = media.map((e) => normalizeText(e));

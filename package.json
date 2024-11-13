@@ -12,7 +12,7 @@
   "dependencies": {
     "@million/lint": "^0.0.73",
     "css-loader": "^7.1.2",
-    "next": "14.2.4",
+    "next": "^14.2.18",
     "react": "^18",
     "react-dom": "^18",
     "sanitize-html": "^2.13.0",

@@ -35,6 +35,13 @@ export default async function Home() {
   const dataPage5 = await getData(
     '/sponsors?include=category&page%5Bnumber%5D=5&page%5Bsize%5D=30',
   );
+  const dataPage6 = await getData(
+    '/sponsors?include=category&page%5Bnumber%5D=6&page%5Bsize%5D=30',
+  );
+
+  const dataPage7 = await getData(
+    '/sponsors?include=category&page%5Bnumber%5D=7&page%5Bsize%5D=30',
+  );
 
   const totalData = mapData([
     dataCategory,
@@ -42,6 +49,8 @@ export default async function Home() {
     dataPage3,
     dataPage4,
     dataPage5,
+    dataPage6,
+    dataPage7,
   ]);
 
   const sponsors = constSortByList({
